@@ -79,6 +79,7 @@ def reset():
 
     return render_template("game.html", game = session["board"], turn = session["turn"],result=result)
 
-# @app.route("/undo")
-# def undo():
+
+if __name__ =="__main__":
+    app.run(host="0.0.0.0",port=5003,debug=True)
 
