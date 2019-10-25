@@ -14,7 +14,7 @@ Session(app)
 
 def myfilter(x):
     if x== "X": return 1
-    if x == "Y": return -1
+    if x == "O": return -1
     else: return 0
 
 def check_game_state(board_sess):
@@ -36,7 +36,7 @@ def check_game_state(board_sess):
             result = sum(row)    
             if result in [3,-3]:
                 winner[0] = True 
-                winner[1] = "X" if result == 3 else "Y"
+                winner[1] = "X" if result == 3 else "O"
                 break
 
     return(winner)
@@ -62,11 +62,11 @@ def play(row, col):
     print(row,col)
 
     if session["turn"] == "X":
-        session["turn"] = "Y"
+        session["turn"] = "O"
         session["board"][row][col] = "X"
     else:
         session["turn"] = "X"
-        session["board"][row][col] = "Y"
+        session["board"][row][col] = "O"
 
     return redirect(url_for("index"))
 
